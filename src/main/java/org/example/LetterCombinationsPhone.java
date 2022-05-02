@@ -26,11 +26,11 @@ public class LetterCombinationsPhone {
     }
 
     public static void main(String[] args) {
-        findCombinations("222");
+        findCombinations("234");
     }
 
     public static void findCombinations(String digits) {
-        if (digits.isEmpty()) {
+        if (null == digits || !digits.matches("\\d+")) {
             return;
         }
         backtrack(digits, 0, "");
