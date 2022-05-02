@@ -26,14 +26,14 @@ public class LetterCombinationsPhone {
     }
 
     public static void main(String[] args) {
-        findCombinations(Arrays.asList('2', '3', '2', '3', '2', '3'));
+        findCombinations("222");
     }
 
-    public static void findCombinations(List<Character> digits) {
+    public static void findCombinations(String digits) {
         if (digits.isEmpty()) {
             return;
         }
-        backtrack("232", 0, "");
+        backtrack(digits, 0, "");
     }
 
     public static void backtrack(String digits, int currIndex, String word) {
@@ -42,7 +42,6 @@ public class LetterCombinationsPhone {
                 backtrack(digits, currIndex + 1, word + ch);
             }
         } else {
-//            System.out.println(word.replace("\0", ""));
             log.info(word);
         }
     }

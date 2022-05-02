@@ -61,13 +61,12 @@ public class LRU {
                 this.tail.next = null;
             } else {
                 if (this.head == null) {
-                    this.head = newNode;
                     this.tail = newNode;
                 } else {
                     newNode.next = this.head;
                     this.head.prev = newNode;
-                    this.head = newNode;
                 }
+                this.head = newNode;
             }
         }
         refMap.put(obj, this.head);
