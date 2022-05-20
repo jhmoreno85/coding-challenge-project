@@ -26,17 +26,18 @@ public class LetterCombinationsPhone {
     }
 
     public static void main(String[] args) {
-        findCombinations("234");
+        LetterCombinationsPhone app = new LetterCombinationsPhone();
+        app.findCombinations("234");
     }
 
-    public static void findCombinations(String digits) {
+    public void findCombinations(String digits) {
         if (null == digits || !digits.matches("\\d+")) {
             return;
         }
         backtrack(digits, 0, "");
     }
 
-    public static void backtrack(String digits, int currIndex, String word) {
+    public void backtrack(String digits, int currIndex, String word) {
         if (currIndex < digits.length()) {
             for (char ch : map.get(digits.charAt(currIndex))) {
                 backtrack(digits, currIndex + 1, word + ch);
