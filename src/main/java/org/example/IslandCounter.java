@@ -15,14 +15,14 @@ public class IslandCounter {
 
     public static void main(String[] args) {
         int[][] board = new int[][]{
-                { 0, 0, 0, 0, 1, 1, 0, 0 },
-                { 1, 0, 0, 0, 0, 1, 0, 0 },
-                { 0, 0, 1, 1, 0, 0, 0, 0 },
-                { 0, 0, 1, 1, 1, 1, 0, 0 },
-                { 1, 0, 1, 1, 0, 0, 0, 0 },
-                { 1, 0, 0, 0, 0, 0, 0, 0 },
-                { 1, 0, 1, 0, 0, 1, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0 }
+                {0, 0, 0, 0, 1, 1, 0, 0},
+                {1, 0, 0, 0, 0, 1, 0, 0},
+                {0, 0, 1, 1, 0, 0, 0, 0},
+                {0, 0, 1, 1, 1, 1, 0, 0},
+                {1, 0, 1, 1, 0, 0, 0, 0},
+                {1, 0, 0, 0, 0, 0, 0, 0},
+                {1, 0, 1, 0, 0, 1, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0}
         };
         countIslands(board);
     }
@@ -31,8 +31,8 @@ public class IslandCounter {
         int largest = 0;
         int counter = 0;
         boolean[][] visited = new boolean[board.length][board.length];
-        for (int i=0; i<board.length; i++) {
-            for (int j=0; j<board[0].length; j++) {
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
                 if (board[i][j] == 1 && !visited[i][j]) {
                     // int size = dfsRecursive(i, j, board, visited, 1);
                     int size = dfs(i, j, board, visited);
@@ -106,7 +106,7 @@ public class IslandCounter {
             size = dfsRecursive(i, j - 1, board, visited, size + 1);
         }
         if (isSafe(i, j + 1, board, visited)) {
-            size = dfsRecursive(i , j + 1, board, visited, size + 1);
+            size = dfsRecursive(i, j + 1, board, visited, size + 1);
         }
         return size;
     }

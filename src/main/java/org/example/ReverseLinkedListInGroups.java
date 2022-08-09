@@ -14,7 +14,7 @@ public class ReverseLinkedListInGroups {
         int data;
         Node next;
 
-        Node( int data) {
+        Node(int data) {
             this.data = data;
             next = null;
         }

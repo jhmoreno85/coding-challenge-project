@@ -11,7 +11,7 @@ import java.util.Queue;
 public class RoomMeetingCounter {
 
     public static void main(String[] args) {
-        log.info("{}", roomsMeetingNeeded(new int[][]{ {17, 19}, {10, 12}, {10, 13}, {9, 10}, {10, 11}, {13, 16}, {16, 17}, {12, 14} }));
+        log.info("{}", roomsMeetingNeeded(new int[][]{{17, 19}, {10, 12}, {10, 13}, {9, 10}, {10, 11}, {13, 16}, {16, 17}, {12, 14}}));
     }
 
     public static int roomsMeetingNeeded(int[][] intervals) {

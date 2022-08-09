@@ -12,6 +12,7 @@ import java.util.Map;
 public class LetterCombinationsPhone {
 
     private static final Map<Character, List<Character>> map = new HashMap<>();
+
     static {
         map.put('0', Collections.singletonList('\0'));
         map.put('1', Collections.singletonList('\0'));

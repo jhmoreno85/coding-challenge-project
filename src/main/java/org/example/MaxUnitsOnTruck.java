@@ -11,7 +11,7 @@ public class MaxUnitsOnTruck {
 
     public static void main(String[] args) {
         int truckSize = 10; // max num of boxes
-        int[][] units = new int[][]{{5, 10},{2, 5},{4, 7},{3, 9}};
+        int[][] units = new int[][]{{5, 10}, {2, 5}, {4, 7}, {3, 9}};
         log.info("{}", getMaxUnits(units, truckSize));
     }
 
