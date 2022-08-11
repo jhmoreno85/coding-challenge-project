@@ -20,13 +20,11 @@ public class SnakeLadders {
 
     public static void main(String[] args) {
         int[] board = new int[100];
-
         // ladders
         board[10] = 10;
         board[30] = 10;
         board[50] = 10;
         board[70] = 10;
-
         // snakes
         board[15] = -10;
         board[35] = -10;
@@ -34,22 +32,20 @@ public class SnakeLadders {
         board[75] = -10;
         board[95] = -10;
 
-        log.info("{}", minDiceThrows(board));
+        SnakeLadders app = new SnakeLadders();
+        log.info("{}", app.minDiceThrows(board));
     }
 
-    public static int minDiceThrows(int[] board) {
+    public int minDiceThrows(int[] board) {
         boolean[] visited = new boolean[board.length];
         visited[0] = true;
-
         Queue<Node> q = new LinkedList<>();
         q.add(new Node(0, 0));
-
         while (!q.isEmpty()) {
             Node node = q.poll();
             if (node.pos == board.length - 1) {
                 return node.dist;
             }
-
             for (int i = 1; i <= 6; i++) {
                 if (node.pos + i < board.length && !visited[node.pos + i] && board[node.pos + i] >= 0) {
                     int position = node.pos + i + board[node.pos + i];
@@ -61,7 +57,6 @@ public class SnakeLadders {
                 }
             }
         }
-
         return -1;
     }
 }
