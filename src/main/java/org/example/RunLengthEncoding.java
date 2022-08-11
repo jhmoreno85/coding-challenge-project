@@ -6,10 +6,11 @@ import lombok.extern.slf4j.Slf4j;
 public class RunLengthEncoding {
 
     public static void main(String[] args) {
-        log.info(encode("aabcccccccca"));
+        RunLengthEncoding app = new RunLengthEncoding();
+        log.info(app.encode("aabcccccccca"));
     }
 
-    public static String encode(String input) {
+    public String encode(String input) {
         if (null == input || input.isEmpty()) {
             return "";
         }

@@ -20,8 +20,6 @@ public class PrettyPrintTree {
     }
 
     public static void main(String[] args) {
-        PrettyPrintTree app = new PrettyPrintTree();
-
         Node root = new Node(15);
         root.level = 0;
         root.left = new Node(10);
@@ -31,6 +29,7 @@ public class PrettyPrintTree {
         root.right.left = new Node(18);
         root.right.right = new Node(30);
 
+        PrettyPrintTree app = new PrettyPrintTree();
         app.print(root);
     }
 
@@ -38,11 +37,9 @@ public class PrettyPrintTree {
         if (n == null) {
             return;
         }
-
         Queue<Node> curr = new LinkedList<>();
         Queue<Node> next = new LinkedList<>();
         curr.add(n);
-
         boolean isFirst = true;
         while (!curr.isEmpty()) {
             Node node = curr.poll();
@@ -60,7 +57,6 @@ public class PrettyPrintTree {
                 Queue<Node> aux = curr;
                 curr = next;
                 next = aux;
-
                 isFirst = true;
                 System.out.println("");
             }
