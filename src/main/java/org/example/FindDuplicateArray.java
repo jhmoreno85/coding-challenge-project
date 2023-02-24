@@ -20,11 +20,11 @@ public class FindDuplicateArray {
             return -1;
         }
         Set<Integer> set = new HashSet<>();
-        for (int i = 0; i < arr.length; i++) {
-            if (set.contains(arr[i])) {
-                return arr[i];
+        for (int j : arr) {
+            if (set.contains(j)) {
+                return j;
             } else {
-                set.add(arr[i]);
+                set.add(j);
             }
         }
         return -1;
