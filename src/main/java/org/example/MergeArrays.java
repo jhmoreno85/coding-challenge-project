@@ -9,12 +9,12 @@ import java.util.stream.Collectors;
 public class MergeArrays {
 
     public static void main(String[] args) {
-        int[] a = {1, 3, 5, 7, 9};
+        int[] a = {10, 30, 50, 70, 90};
         int[] b = {0, 2, 4, 6, 8, 10, 11};
         MergeArrays app = new MergeArrays();
         log.info("{}", Arrays.stream(app.solve(a, b))
-                .mapToObj(value -> String.valueOf(value))
-                .collect(Collectors.joining(", ")));
+                .mapToObj(String::valueOf)
+                .collect(Collectors.joining(" -> ")));
     }
 
     private int[] solve(int[] a, int[] b) {
