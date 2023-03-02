@@ -21,6 +21,29 @@ public class DoublyLinkedList {
         this.tail = newNode;
     }
 
+    public void remove(int data) {
+        Node aux = this.head;
+        while (null != aux) {
+            if (data == aux.data) {
+                if (null == aux.prev && null == aux.next) {
+                    this.head = null;
+                    this.tail = null;
+                } else if (null == aux.prev) {
+                    this.head = aux.next;
+                    this.head.prev = null;
+                } else if (null == aux.next) {
+                    this.tail = aux.prev;
+                    this.tail.next = null;
+                } else {
+                    aux.prev.next = aux.next;
+                    aux.next.prev = aux.prev;
+                }
+                break;
+            }
+            aux = aux.next;
+        }
+    }
+
     public void print() {
         boolean flag = true;
         Node aux = this.head;

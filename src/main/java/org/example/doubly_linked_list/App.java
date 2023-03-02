@@ -14,6 +14,12 @@ public class App {
         dll.add(8);
         dll.add(9);
         dll.add(10);
+
+        dll.remove(5);
+        dll.remove(1);
+        dll.remove(10);
+        dll.remove(7);
+
         dll.print();
     }
 }
