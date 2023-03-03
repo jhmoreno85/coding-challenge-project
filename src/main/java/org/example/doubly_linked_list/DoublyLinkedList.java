@@ -74,9 +74,9 @@ public class DoublyLinkedList {
         }
     }
 
-    public void print(boolean reverse) {
+    public void print(boolean reverseOrder) {
         boolean flag = true;
-        Node curr = reverse ? this.tail : this.head;
+        Node curr = reverseOrder ? this.tail : this.head;
         while (null != curr) {
             if (flag) {
                 System.out.print(curr.data);
@@ -84,7 +84,7 @@ public class DoublyLinkedList {
             } else {
                 System.out.print(" -> " + curr.data);
             }
-            curr = reverse ? curr.prev : curr.next;
+            curr = reverseOrder ? curr.prev : curr.next;
         }
         System.out.println("");
     }
