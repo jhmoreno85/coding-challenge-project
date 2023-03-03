@@ -17,7 +17,7 @@ public class App {
         dll.addOrdered(0);
         dll.addOrdered(100);
 
-        dll.print();
-        dll.printReverse();
+        dll.print(false);
+        dll.print(true);
     }
 }

@@ -74,9 +74,9 @@ public class DoublyLinkedList {
         }
     }
 
-    public void print() {
+    public void print(boolean reverse) {
         boolean flag = true;
-        Node curr = this.head;
+        Node curr = reverse ? this.tail : this.head;
         while (null != curr) {
             if (flag) {
                 System.out.print(curr.data);
@@ -84,22 +84,7 @@ public class DoublyLinkedList {
             } else {
                 System.out.print(" -> " + curr.data);
             }
-            curr = curr.next;
-        }
-        System.out.println("");
-    }
-
-    public void printReverse() {
-        boolean flag = true;
-        Node aux = this.tail;
-        while (null != aux) {
-            if (flag) {
-                System.out.print(aux.data);
-                flag = false;
-            } else {
-                System.out.print(" -> " + aux.data);
-            }
-            aux = aux.prev;
+            curr = reverse ? curr.prev : curr.next;
         }
         System.out.println("");
     }
