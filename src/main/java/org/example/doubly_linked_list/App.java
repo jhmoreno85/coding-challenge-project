@@ -4,22 +4,20 @@ public class App {
 
     public static void main(String[] args) {
         DoublyLinkedList dll = new DoublyLinkedList();
-        dll.add(1);
-        dll.add(2);
-        dll.add(3);
-        dll.add(4);
-        dll.add(5);
-        dll.add(6);
-        dll.add(7);
-        dll.add(8);
-        dll.add(9);
-        dll.add(10);
-
-        dll.remove(5);
-        dll.remove(1);
-        dll.remove(10);
-        dll.remove(7);
+        dll.addOrdered(2);
+        dll.addOrdered(1);
+        dll.addOrdered(10);
+        dll.addOrdered(9);
+        dll.addOrdered(5);
+        dll.addOrdered(4);
+        dll.addOrdered(8);
+        dll.addOrdered(7);
+        dll.addOrdered(3);
+        dll.addOrdered(6);
+        dll.addOrdered(0);
+        dll.addOrdered(100);
 
         dll.print();
+        dll.printReverse();
     }
 }

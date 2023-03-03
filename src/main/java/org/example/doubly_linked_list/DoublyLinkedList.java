@@ -21,41 +21,86 @@ public class DoublyLinkedList {
         this.tail = newNode;
     }
 
+    public void addOrdered(int data) {
+        Node newNode = new Node(data);
+        if (null == this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            if (newNode.data < this.head.data) {
+                newNode.next = this.head;
+                this.head.prev = newNode;
+                this.head = newNode;
+            } else if (newNode.data > this.tail.data) {
+                newNode.prev = this.tail;
+                this.tail.next = newNode;
+                this.tail = newNode;
+            } else {
+                Node curr = this.head;
+                while (null != curr) {
+                    if (newNode.data < curr.data) {
+                        newNode.prev = curr.prev;
+                        newNode.next = curr;
+                        curr.prev.next = newNode;
+                        curr.prev = newNode;
+                        break;
+                    }
+                    curr = curr.next;
+                }
+            }
+        }
+    }
+
     public void remove(int data) {
-        Node aux = this.head;
-        while (null != aux) {
-            if (data == aux.data) {
-                if (null == aux.prev && null == aux.next) {
+        Node curr = this.head;
+        while (null != curr) {
+            if (data == curr.data) {
+                if (null == curr.prev && null == curr.next) {
                     this.head = null;
                     this.tail = null;
-                } else if (null == aux.prev) {
-                    this.head = aux.next;
+                } else if (null == curr.prev) {
+                    this.head = curr.next;
                     this.head.prev = null;
-                } else if (null == aux.next) {
-                    this.tail = aux.prev;
+                } else if (null == curr.next) {
+                    this.tail = curr.prev;
                     this.tail.next = null;
                 } else {
-                    aux.prev.next = aux.next;
-                    aux.next.prev = aux.prev;
+                    curr.prev.next = curr.next;
+                    curr.next.prev = curr.prev;
                 }
                 break;
             }
-            aux = aux.next;
+            curr = curr.next;
         }
     }
 
     public void print() {
         boolean flag = true;
-        Node aux = this.head;
-        while (null != aux) {
+        Node curr = this.head;
+        while (null != curr) {
             if (flag) {
-                System.out.print("null <- " + aux.data);
+                System.out.print(curr.data);
                 flag = false;
             } else {
-                System.out.print(" <=> " + aux.data);
+                System.out.print(" -> " + curr.data);
             }
-            aux = aux.next;
+            curr = curr.next;
         }
-        System.out.print(" -> null");
+        System.out.println("");
+    }
+
+    public void printReverse() {
+        boolean flag = true;
+        Node aux = this.tail;
+        while (null != aux) {
+            if (flag) {
+                System.out.print(aux.data);
+                flag = false;
+            } else {
+                System.out.print(" -> " + aux.data);
+            }
+            aux = aux.prev;
+        }
+        System.out.println("");
     }
 }
