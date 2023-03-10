@@ -2,8 +2,8 @@ package org.example.doubly_linked_list;
 
 public class DoublyLinkedList {
 
-    Node head;
-    Node tail;
+    private Node head;
+    private Node tail;
 
     public DoublyLinkedList() {
         this.head = null;
@@ -87,5 +87,17 @@ public class DoublyLinkedList {
             curr = reverseOrder ? curr.prev : curr.next;
         }
         System.out.println("");
+    }
+
+    private static class Node {
+        Node prev;
+        Node next;
+        int data;
+
+        public Node(int data) {
+            this.prev = null;
+            this.next = null;
+            this.data = data;
+        }
     }
 }
