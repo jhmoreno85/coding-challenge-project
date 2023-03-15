@@ -16,6 +16,9 @@ public class App {
         sll.insert(10);
 
         sll.print();
+        sll.remove(1);
+        sll.remove(10);
+        sll.remove(5);
         sll.print();
     }
 }

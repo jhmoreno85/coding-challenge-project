@@ -22,7 +22,20 @@ public class SimpleLinkedList {
     }
 
     public void remove(int data) {
-
+        if (null != this.head) {
+            if (this.head.data == data) {
+                this.head = this.head.next;
+            } else {
+                Node curr = this.head;
+                while(null != curr) {
+                    if (null != curr.next && curr.next.data == data) {
+                        curr.next = curr.next.next;
+                        break;
+                    }
+                    curr = curr.next;
+                }
+            }
+        }
     }
 
     public void print() {
