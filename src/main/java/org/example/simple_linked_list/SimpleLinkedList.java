@@ -50,7 +50,7 @@ public class SimpleLinkedList {
             }
             curr = curr.next;
         }
-        System.out.println("");
+        System.out.println();
     }
 
     private static class Node {

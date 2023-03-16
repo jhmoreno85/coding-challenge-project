@@ -86,7 +86,7 @@ public class DoublyLinkedList {
             }
             curr = reverseOrder ? curr.prev : curr.next;
         }
-        System.out.println("");
+        System.out.println();
     }
 
     private static class Node {
