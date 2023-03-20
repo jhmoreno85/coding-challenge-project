@@ -32,8 +32,11 @@ public class LRU {
     }
 
     public Object get(Object obj) {
-        this.put(obj);
-        return obj;
+        if (refMap.containsKey(obj)) {
+            this.put(obj);
+            return refMap.get(obj);
+        }
+        return null;
     }
 
     public void put(Object obj) {
