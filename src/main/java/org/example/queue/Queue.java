@@ -43,7 +43,7 @@ public class Queue {
             throw new IllegalStateException("queue is empty");
         }
         int data = this.head.data;
-        if (ONE == this.count) {
+        if (ONE == size()) {
             this.head = null;
             this.tail = null;
         } else {
@@ -65,11 +65,11 @@ public class Queue {
     }
 
     public boolean isEmpty() {
-        return ZERO == this.count;
+        return ZERO == size();
     }
 
     public boolean isFull() {
-        return this.count == this.capacity;
+        return this.capacity == size();
     }
 
     public void print() {
