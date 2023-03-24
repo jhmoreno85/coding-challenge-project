@@ -6,8 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 public class Queue {
 
     private static final int DEFAULT_CAPACITY = 10;
-    private static final int ZERO = 0;
-    private static final int ONE = 1;
     private final int capacity;
     private int count;
     private Node head;
@@ -15,7 +13,7 @@ public class Queue {
 
     public Queue(int capacity) {
         this.capacity = capacity;
-        this.count = ZERO;
+        this.count = 0;
         this.head = null;
         this.tail = null;
     }
@@ -43,7 +41,7 @@ public class Queue {
             throw new IllegalStateException("queue is empty");
         }
         int data = this.head.data;
-        if (ONE == size()) {
+        if (1 == size()) {
             this.head = null;
             this.tail = null;
         } else {
@@ -65,7 +63,7 @@ public class Queue {
     }
 
     public boolean isEmpty() {
-        return ZERO == size();
+        return 0 == size();
     }
 
     public boolean isFull() {
