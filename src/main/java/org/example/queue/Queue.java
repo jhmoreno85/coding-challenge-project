@@ -43,9 +43,11 @@ public class Queue {
             throw new IllegalStateException("queue is empty");
         }
         int data = this.head.data;
-        this.head = this.head.next;
         if (ONE == this.count) {
-            this.tail = this.head.next;
+            this.head = null;
+            this.tail = null;
+        } else {
+            this.head = this.head.next;
         }
         this.count--;
         return data;
