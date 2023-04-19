@@ -3,13 +3,13 @@ package org.example.queue;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class Queue {
+public class Queue<T> {
 
     private static final int DEFAULT_CAPACITY = 10;
     private final int capacity;
     private int count;
-    private Node head;
-    private Node tail;
+    private Node<T> head;
+    private Node<T> tail;
 
     public Queue(int capacity) {
         this.capacity = capacity;
@@ -22,11 +22,11 @@ public class Queue {
         this(DEFAULT_CAPACITY);
     }
 
-    public void add(int data) {
+    public void add(T data) {
         if (isFull()) {
             throw new IllegalStateException("queue is full");
         }
-        Node newNode = new Node(data);
+        Node<T> newNode = new Node<>(data);
         if (null == this.head) {
             this.head = newNode;
         } else {
@@ -36,11 +36,11 @@ public class Queue {
         this.count++;
     }
 
-    public int poll() {
+    public T poll() {
         if (isEmpty()) {
             throw new IllegalStateException("queue is empty");
         }
-        int data = this.head.data;
+        T data = this.head.data;
         if (1 == size()) {
             this.head = null;
             this.tail = null;
@@ -51,7 +51,7 @@ public class Queue {
         return data;
     }
 
-    public int peek() {
+    public T peek() {
         if (isEmpty()) {
             throw new IllegalStateException("queue is empty");
         }
@@ -66,24 +66,24 @@ public class Queue {
         return 0 == size();
     }
 
-    public boolean isFull() {
+    private boolean isFull() {
         return this.capacity == size();
     }
 
     public void print() {
-        Node aux = this.head;
+        Node<T> aux = this.head;
         while (null != aux) {
             log.info("{}", aux.data);
             aux = aux.next;
         }
     }
 
-    private static class Node {
+    private static class Node<T> {
 
-        Node next;
-        int data;
+        Node<T> next;
+        T data;
 
-        public Node(int data) {
+        public Node(T data) {
             this.next = null;
             this.data = data;
         }
