@@ -24,7 +24,7 @@ public class Stack<T> {
         if (isFull()) {
             throw new IllegalStateException("stack is full");
         }
-        this.top = new Node<>(data, top);
+        this.top = new Node<>(data, this.top);
         this.count++;
     }
 
@@ -69,12 +69,12 @@ public class Stack<T> {
 
     private static class Node<T> {
 
-        Node<T> prev;
         T data;
+        Node<T> prev;
 
         public Node(T data, Node<T> node) {
-            this.prev = node;
             this.data = data;
+            this.prev = node;
         }
     }
 }
