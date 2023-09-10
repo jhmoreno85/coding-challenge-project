@@ -8,7 +8,7 @@ import java.util.Map;
 @Slf4j
 public class LRU {
 
-    private class Node {
+    private static class Node {
         Object val;
         Node next;
         Node prev;

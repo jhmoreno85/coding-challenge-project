@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 public class ReverseAnArray {
 
     public static void main(String[] args) {
-        ReverseAnArray app = new ReverseAnArray();
         int[] arr = {1, 2, 3, 4, 5, 6, 7, 8};
+        ReverseAnArray app = new ReverseAnArray();
         log.info("{}", Arrays.stream(app.solve(arr))
                 .mapToObj(String::valueOf)
                 .collect(Collectors.joining(", ")));

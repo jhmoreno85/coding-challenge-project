@@ -15,7 +15,7 @@ public class BackspaceStringCompare {
     }
 
     public int compareStrings(String s1, String s2) {
-        if (s1 == null || s2 == null) {
+        if (null == s1 || null == s2) {
             return 0;
         }
         return removeBackspaces(s1).equals(removeBackspaces(s2)) ? 1 : 0;
@@ -24,7 +24,7 @@ public class BackspaceStringCompare {
     public String removeBackspaces(String s) {
         Deque<Character> stack = new ArrayDeque<>();
         for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) != '#') {
+            if ('#' != s.charAt(i)) {
                 stack.push(s.charAt(i));
             } else {
                 if (!stack.isEmpty()) {

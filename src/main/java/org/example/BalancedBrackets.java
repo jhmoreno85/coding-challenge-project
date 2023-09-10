@@ -10,22 +10,25 @@ import java.util.Map;
 @Slf4j
 public class BalancedBrackets {
 
-    public static void main(String[] args) {
-        Map<Character, Character> bracketsMap = new HashMap<>();
-        bracketsMap.put('}', '{');
-        bracketsMap.put(')', '(');
-        bracketsMap.put(']', '[');
-        bracketsMap.put('>', '<');
-
-        BalancedBrackets app = new BalancedBrackets();
-        log.info("{}", app.isBalanced(bracketsMap, "([){(()(){([][][][])}[])}[{}]]{}<()>("));
+    private static final Map<Character, Character> BRACKETS_MAP;
+    static {
+        BRACKETS_MAP = new HashMap<>();
+        BRACKETS_MAP.put('}', '{');
+        BRACKETS_MAP.put(')', '(');
+        BRACKETS_MAP.put(']', '[');
+        BRACKETS_MAP.put('>', '<');
     }
 
-    private boolean isBalanced(Map<Character, Character> bracketsMap, String s) {
+    public static void main(String[] args) {
+        BalancedBrackets app = new BalancedBrackets();
+        log.info("{}", app.isBalanced("([){(()(){([][][][])}[])}[{}]]{}<()>("));
+    }
+
+    private boolean isBalanced(String s) {
         Deque<Character> stack = new ArrayDeque<>();
         for (int i = 0; i < s.length(); i++) {
-            if (bracketsMap.containsKey(s.charAt(i))) {
-                if (bracketsMap.get(s.charAt(i)).equals(stack.peek())) {
+            if (BRACKETS_MAP.containsKey(s.charAt(i))) {
+                if (BRACKETS_MAP.get(s.charAt(i)).equals(stack.peek())) {
                     stack.pop();
                 } else {
                     return false;

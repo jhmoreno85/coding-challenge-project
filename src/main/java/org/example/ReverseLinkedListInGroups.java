@@ -10,7 +10,7 @@ public class ReverseLinkedListInGroups {
 
     public Node head;
 
-    public class Node {
+    public static class Node {
         int data;
         Node next;
 
