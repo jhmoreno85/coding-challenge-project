@@ -11,14 +11,14 @@ import java.util.Map;
 public class BalancedBrackets {
 
     public static void main(String[] args) {
-        Map<Character, Character> bracketsMap = new HashMap<>(4);
+        Map<Character, Character> bracketsMap = new HashMap<>();
         bracketsMap.put('}', '{');
         bracketsMap.put(')', '(');
         bracketsMap.put(']', '[');
         bracketsMap.put('>', '<');
 
         BalancedBrackets app = new BalancedBrackets();
-        log.info("{}", app.isBalanced(bracketsMap, "[{(()(){([][][][])}[])}[{}]]{}<()><><><><><><[()]>"));
+        log.info("{}", app.isBalanced(bracketsMap, "([){(()(){([][][][])}[])}[{}]]{}<()>("));
     }
 
     private boolean isBalanced(Map<Character, Character> bracketsMap, String s) {
