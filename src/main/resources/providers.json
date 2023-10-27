@@ -94,6 +94,9 @@
             "expression": "T(com.example.EvalSpelExpression).isTrue(${context.response}, 'target.path.foo.boolean')"
           }
         ]
+      },
+      "cache": {
+        "ttl": "999999"
       }
     }
   ]
