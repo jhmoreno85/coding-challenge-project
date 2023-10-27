@@ -10,7 +10,7 @@ import java.util.Set;
 public class JsonMap implements Map<String, Object> {
 
     private static final int OFFSET = 1;
-    private static final int DEFAULT_CAPACITY = OFFSET << 4;
+    private static final int DEFAULT_CAPACITY = 1 << 4;
     private static final String DOT_REGEX = "\\.";
     private static final String REGEX_ARRAY_BRACKETS = "^\\[\\d+]?";
 
