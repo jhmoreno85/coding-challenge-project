@@ -19,6 +19,10 @@ public class JsonMap implements Map<String, Object> {
         this(DEFAULT_CAPACITY);
     }
 
+    public JsonMap(Map<String, Object> m) {
+        this.map = new HashMap<>(m);
+    }
+
     public JsonMap(int initialCapacity) {
         this.map = new HashMap<>(initialCapacity);
     }
@@ -34,17 +38,17 @@ public class JsonMap implements Map<String, Object> {
     }
 
     @Override
-    public boolean containsKey(java.lang.Object key) {
+    public boolean containsKey(Object key) {
         return this.map.containsKey(key);
     }
 
     @Override
-    public boolean containsValue(java.lang.Object value) {
+    public boolean containsValue(Object value) {
         return this.map.containsValue(value);
     }
 
     @Override
-    public Object get(java.lang.Object key) {
+    public Object get(Object key) {
         return this.map.get(key);
     }
 
