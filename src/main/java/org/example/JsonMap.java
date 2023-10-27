@@ -9,7 +9,8 @@ import java.util.Set;
 
 public class JsonMap implements Map<String, Object> {
 
-    private static final int DEFAULT_CAPACITY = 1 << 4;
+    private static final int OFFSET = 1;
+    private static final int DEFAULT_CAPACITY = OFFSET << 4;
     private static final String DOT_REGEX = "\\.";
     private static final String REGEX_ARRAY_BRACKETS = "^\\[\\d+]?";
 
@@ -98,16 +99,16 @@ public class JsonMap implements Map<String, Object> {
     private Object getObjFromMap(Object object, String[] targetPath, int currIndex) {
         if (object instanceof Map) {
             if (((Map<String, Object>) object).containsKey(targetPath[currIndex])) {
-                return currIndex == targetPath.length - 1 ?
+                return currIndex == targetPath.length - OFFSET ?
                         ((Map<String, Object>) object).get(targetPath[currIndex]) :
-                        getObjFromMap(((Map<String, Object>) object).get(targetPath[currIndex]), targetPath, currIndex + 1);
+                        getObjFromMap(((Map<String, Object>) object).get(targetPath[currIndex]), targetPath, currIndex + OFFSET);
             }
         } else if (object instanceof List && targetPath[currIndex].matches(REGEX_ARRAY_BRACKETS)) {
-            int elementIndex = Integer.parseInt(targetPath[currIndex].substring(1, targetPath[currIndex].length() - 1));
+            int elementIndex = Integer.parseInt(targetPath[currIndex].substring(OFFSET, targetPath[currIndex].length() - OFFSET));
             if (elementIndex < ((List<Object>) object).size()) {
-                return currIndex == targetPath.length - 1 ?
+                return currIndex == targetPath.length - OFFSET ?
                         ((List<Object>) object).get(elementIndex) :
-                        getObjFromMap(((List<Object>) object).get(elementIndex), targetPath, currIndex + 1);
+                        getObjFromMap(((List<Object>) object).get(elementIndex), targetPath, currIndex + OFFSET);
             }
         }
         return null;
