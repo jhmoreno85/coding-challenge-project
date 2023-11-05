@@ -8,27 +8,22 @@ import java.util.Map;
 @Slf4j
 public class LRU {
 
-    private static class Node {
-        Object val;
-        Node next;
-        Node prev;
+    private static final int DEFAULT_CAPACITY = 100;
 
-        public Node(Object val) {
-            this.val = val;
-            this.next = null;
-            this.prev = null;
-        }
-    }
-
+    private final Map<Object, Node> refMap;
     private final int capacity;
-    private final Map<Object, Node> refMap = new HashMap<>();
     private Node head;
     private Node tail;
 
     public LRU(int capacity) {
+        this.refMap = new HashMap<>();
         this.capacity = capacity;
         this.head = null;
         this.tail = null;
+    }
+
+    public LRU() {
+        this(DEFAULT_CAPACITY);
     }
 
     public Object get(Object obj) {
@@ -75,27 +70,23 @@ public class LRU {
         refMap.put(obj, this.head);
     }
 
-    public static void main(String[] args) {
-        LRU app = new LRU(6);
-        app.put(3);
-        app.put(2);
-        app.put(1);
-        app.put(0);
-        app.put(5);
-        app.put(8);
-        app.put(9);
-        app.put(10);
-        app.put(11);
-        log.info("{}", app.get(9));
-        log.info("{}", app.get(5));
-        app.printList();
-    }
-
     public void printList() {
         Node node = this.head;
         while (node != null) {
             log.info(" -> " + node.val);
             node = node.next;
+        }
+    }
+
+    private static class Node {
+        Object val;
+        Node next;
+        Node prev;
+
+        public Node(Object val) {
+            this.val = val;
+            this.next = null;
+            this.prev = null;
         }
     }
 }
