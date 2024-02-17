@@ -19,6 +19,6 @@ public class FindDuplicatesArray {
         Set<Integer> set = new HashSet<>();
         Arrays.stream(arr)
                 .filter(value -> !set.add(value))
-                .forEach(value -> log.info("duplicate -> {}", value));
+                .forEach(value -> log.info("duplicated -> {}", value));
     }
 }
