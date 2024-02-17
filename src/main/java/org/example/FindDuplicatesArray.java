@@ -2,7 +2,6 @@ package org.example;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,8 +16,10 @@ public class FindDuplicatesArray {
 
     private void solve(int[] arr) {
         Set<Integer> set = new HashSet<>();
-        Arrays.stream(arr)
-                .filter(value -> !set.add(value))
-                .forEach(value -> log.info("duplicated -> {}", value));
+        for (int val : arr) {
+            if (!set.add(val)) {
+                log.info("duplicated -> {}", val);
+            }
+        }
     }
 }
