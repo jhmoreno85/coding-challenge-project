@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 @Slf4j
 public class BackspaceStringCompare {
 
+    private static final char HASH = '#';
+
     public static void main(String[] args) {
         BackspaceStringCompare app = new BackspaceStringCompare();
         log.info("{}", app.compareStrings("yyf#c#a", "yyy#k#pp##a"));
@@ -24,7 +26,7 @@ public class BackspaceStringCompare {
     public String removeBackspaces(String s) {
         Deque<Character> stack = new ArrayDeque<>();
         for (int i = 0; i < s.length(); i++) {
-            if ('#' != s.charAt(i)) {
+            if (HASH != s.charAt(i)) {
                 stack.push(s.charAt(i));
             } else {
                 if (!stack.isEmpty()) {
