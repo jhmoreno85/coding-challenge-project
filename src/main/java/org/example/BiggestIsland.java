@@ -12,14 +12,14 @@ public class BiggestIsland {
 
     public static void main(String[] args) {
         int[][] board = new int[][]{
-                {0, 0, 0, 0, 1, 1, 0, 0},
-                {1, 0, 0, 0, 0, 1, 0, 0},
-                {0, 0, 1, 1, 0, 0, 0, 0},
-                {0, 0, 1, 1, 1, 1, 0, 0},
-                {1, 0, 1, 1, 1, 0, 0, 0},
-                {1, 0, 0, 0, 0, 0, 0, 0},
-                {1, 0, 1, 0, 0, 1, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0}
+                { 0, 0, 0, 0, 1, 1, 0, 0, 0 },
+                { 1, 0, 0, 0, 0, 1, 0, 0, 0 },
+                { 0, 0, 1, 1, 0, 0, 0, 0, 0 },
+                { 0, 0, 1, 1, 1, 1, 1, 1, 1 },
+                { 1, 0, 1, 1, 1, 0, 0, 0, 0 },
+                { 1, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 1, 0, 1, 0, 0, 1, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0 }
         };
         BiggestIsland app = new BiggestIsland();
         int result = app.getSizeBiggestIslands(board);
@@ -27,10 +27,10 @@ public class BiggestIsland {
     }
 
     private int getSizeBiggestIslands(int[][] board) {
-        boolean[][] visited = new boolean[board.length][board.length];
+        boolean[][] visited = new boolean[board.length][board[0].length];
         int maxSize = 0;
         for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board.length; j++) {
+            for (int j = 0; j < board[0].length; j++) {
                 if (1 == board[i][j] && !visited[i][j]) {
                     int size = dfs(i, j, board, visited);
                     maxSize = Math.max(maxSize, size);
@@ -91,6 +91,6 @@ public class BiggestIsland {
     }
 
     private boolean isSafe(int i, int j, int[][] board, boolean[][] visited) {
-        return i >= 0 && i < board.length && j >= 0 && j < board.length && !visited[i][j] && board[i][j] == 1;
+        return i >= 0 && i < board.length && j >= 0 && j < board[0].length && !visited[i][j] && board[i][j] == 1;
     }
 }
