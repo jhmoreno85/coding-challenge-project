@@ -1,13 +1,6 @@
 package org.example;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
 public class ZigzagString {
-
-    private static final String EMPTY = "";
 
     public static void main(String[] args) {
         ZigzagString app = new ZigzagString();
@@ -16,22 +9,26 @@ public class ZigzagString {
     }
 
     private String solve(String s, int numRows) {
-        Map<Integer, String> map = new HashMap<>();
+        if (1 == numRows) {
+            return s;
+        }
+        StringBuffer[] arr = new StringBuffer[numRows];
+        for (int i = 0; i < numRows; i++) {
+            arr[i] = new StringBuffer();
+        }
+        int level = 0;
         boolean goingDown = true;
-        int level = 1;
         for (int i = 0; i < s.length(); i++) {
-            String sub = map.getOrDefault(level, EMPTY);
-            sub += s.charAt(i);
-            map.put(level, sub);
+            arr[level].append(s.charAt(i));
             if (goingDown) {
-                if (level == numRows) {
+                if (level == numRows - 1) {
                     level--;
                     goingDown = false;
                 } else {
                     level++;
                 }
             } else {
-                if (level == 1) {
+                if (level == 0) {
                     level++;
                     goingDown = true;
                 } else {
@@ -39,8 +36,9 @@ public class ZigzagString {
                 }
             }
         }
-        return IntStream.range(1, numRows + 1)
-                .mapToObj(map::get)
-                .collect(Collectors.joining());
+        for (int i = 1; i < arr.length; i++) {
+            arr[0].append(arr[i]);
+        }
+        return arr[0].toString();
     }
 }
