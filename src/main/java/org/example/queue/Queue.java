@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Queue<T> {
 
-    private static final int DEFAULT_CAPACITY = 10;
+    private static final int DEFAULT_CAPACITY = Integer.MAX_VALUE;
     private final int capacity;
     private int count;
     private Node<T> head;
