@@ -6,11 +6,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Slf4j
-public class SumNumArray {
+public class SumNumUnsortedArray {
 
     public static void main(String[] args) {
         int[] input = { 1, 10, 2, 0, 80, 100, 55, 13, 999, 15 };
-        SumNumArray app = new SumNumArray();
+        SumNumUnsortedArray app = new SumNumUnsortedArray();
         int[] result = app.solve(input, 1000);
         log.info("result: [{}, {}]", result[0], result[1]);
     }
