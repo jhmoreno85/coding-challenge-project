@@ -101,4 +101,32 @@ public class BinaryTree {
         postOrder(node.right);
         System.out.print(node.data + " ");
     }
+
+    public int getMin() {
+        if (null == this.root) {
+            throw new IllegalStateException("Tree is empty");
+        }
+        return getMin(this.root);
+    }
+
+    private int getMin(Node node) {
+        if (null == node.left) {
+            return node.data;
+        }
+        return getMin(node.left);
+    }
+
+    public int getMax() {
+        if (null == this.root) {
+            throw new IllegalStateException("Tree is empty");
+        }
+        return getMax(this.root);
+    }
+
+    private int getMax(Node node) {
+        if (null == node.right) {
+            return node.data;
+        }
+        return getMax(node.right);
+    }
 }
