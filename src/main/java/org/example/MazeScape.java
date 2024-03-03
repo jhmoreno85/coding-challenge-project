@@ -28,24 +28,22 @@ public class MazeScape {
     }
 
     private int getMinDist(int[][] board) {
-        boolean[][] visited = new boolean[board.length][board[0].length]; // could be a Set also
-        // find maze entry
-        Node start = null;
+        boolean[][] visited = new boolean[board.length][board[0].length];
+        Node startNode = null;
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
                 if (board[i][j] == MAZE_ENTRY) {
                     visited[i][j] = true;
-                    start = new Node(i, j, 0);
+                    startNode = new Node(i, j, 0);
                     break;
                 }
             }
         }
-        if (null == start) {
+        if (null == startNode) {
             throw new IllegalStateException("There is no maze entry");
         }
-
         Queue<Node> q = new Queue<>();
-        q.add(start);
+        q.add(startNode);
         while (!q.isEmpty()) {
             Node currNode = q.poll();
             if (MAZE_EXIT == board[currNode.x][currNode.y]) {
