@@ -23,15 +23,15 @@ public class Anagrams {
         }
         Map<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < s1.length(); i++) {
-            char ascii1 = s1.charAt(i);
-            char ascii2 = s2.charAt(i);
-            map.put(ascii1, map.getOrDefault(ascii1, 0) + 1);
-            if (0 == map.get(ascii1)) {
-                map.remove(ascii1);
+            char ch1 = s1.charAt(i);
+            map.put(ch1, map.getOrDefault(ch1, 0) + 1);
+            if (0 == map.get(ch1)) {
+                map.remove(ch1);
             }
-            map.put(ascii2, map.getOrDefault(ascii2, 0) - 1);
-            if (0 == map.get(ascii2)) {
-                map.remove(ascii2);
+            char ch2 = s2.charAt(i);
+            map.put(ch2, map.getOrDefault(ch2, 0) - 1);
+            if (0 == map.get(ch2)) {
+                map.remove(ch2);
             }
         }
         log.info("elapsed time: {}", System.currentTimeMillis() - start);
