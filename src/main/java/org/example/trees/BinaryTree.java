@@ -129,4 +129,26 @@ public class BinaryTree {
         }
         return getMax(node.right);
     }
+
+    public int getLCA(int n1, int n2) {
+        if (null == this.root) {
+            throw new IllegalStateException("Tree is empty");
+        }
+        Node rootAux = this.root;
+        Node result = getLCA(rootAux, n1, n2);
+        return result.data;
+    }
+
+    private Node getLCA(Node node, int n1, int n2) {
+        if (null == node){
+            return null;
+        }
+        if (node.data > n1 && node.data > n2) {
+            return getLCA(node.left, n1, n2);
+        }
+        if (node.data < n1 && node.data < n2) {
+            return getLCA(node.right, n1, n2);
+        }
+        return node;
+    }
 }
