@@ -55,7 +55,7 @@ public class BinaryTree {
         }
     }
 
-    public void print(TraversalType traversalType) {
+    public void traverse(TraversalType traversalType) {
         if (null == traversalType) {
             throw new IllegalArgumentException("Traversal type must not be null");
         }

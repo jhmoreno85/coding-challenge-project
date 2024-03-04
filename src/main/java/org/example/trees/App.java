@@ -21,8 +21,8 @@ public class App {
         System.out.println("Min: " + bt.getMin());
         System.out.println("Max: " + bt.getMax());
 
-        bt.print(TraversalType.IN_ORDER);
+        bt.traverse(TraversalType.IN_ORDER);
         bt.invertTree();
-        bt.print(TraversalType.IN_ORDER);
+        bt.traverse(TraversalType.IN_ORDER);
     }
 }
