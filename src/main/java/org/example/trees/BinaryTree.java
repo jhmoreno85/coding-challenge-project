@@ -69,8 +69,6 @@ public class BinaryTree {
             case PRE_ORDER:
                 preOrder(this.root);
                 break;
-            default:
-                throw new IllegalStateException("Invalid traversal option");
         }
         System.out.println("");
     }

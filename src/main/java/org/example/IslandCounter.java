@@ -2,7 +2,7 @@ package org.example;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.LinkedList;
+import java.util.ArrayDeque;
 import java.util.Queue;
 
 @Slf4j
@@ -48,7 +48,7 @@ public class IslandCounter {
         Cursor s = new Cursor();
         s.x = i;
         s.y = j;
-        Queue<Cursor> q = new LinkedList<>();
+        Queue<Cursor> q = new ArrayDeque<>();
         q.add(s);
         while (!q.isEmpty()) {
             Cursor n = q.poll();
